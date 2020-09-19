@@ -1,20 +1,37 @@
 <template>
   <div id="app">
-    {{name}}
+    <Todo v-bind:todos="todos"/>
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-new Vue({
-  el:"#app",
-  data :{
-    name:"Nawaf"
-  }
-
-});
+import Todo from "./components/Todo"
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Todo
+  },
+  data(){
+    return{
+      todos:[
+        {
+          id:1,
+          title:"Todo One",
+          isDone: true
+        },
+        {
+          id:2,
+          title:"Todo Two",
+          isDone: false
+        },
+        {
+          id:3,
+          title:"Todo Three",
+          isDone: true
+        }
+      ]
+    }
+  }
 }
 </script>
 
