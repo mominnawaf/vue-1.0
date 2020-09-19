@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 export default {
     name:"AddTodo",
     data(){
@@ -20,9 +20,9 @@ export default {
     methods:{
         hi(){
             const newTodo={
-                id:uuidv4(),
+               
                 title:this.title,
-                isDone:false
+                completed:false
             }
         this.$emit("newTodo",newTodo);
         this.title='';

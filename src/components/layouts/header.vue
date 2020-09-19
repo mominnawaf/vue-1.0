@@ -1,5 +1,10 @@
 <template>
-  <header class="header">To-Do List</header>
+  <header class="header">To-Do List
+       <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -21,4 +26,12 @@ export default {
     padding-right: 5px;
     text-decoration: none;
   }
+  #nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
