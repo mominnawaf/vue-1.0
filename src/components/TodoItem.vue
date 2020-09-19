@@ -1,7 +1,8 @@
 <template>
-  <div v-bind:class="{'is-completed':todo.isDone}">
+  <div class="todo-item" v-bind:class="{'is-completed':todo.isDone}">
       <input type="checkbox" v-on:change="markComplete">
       {{todo.title}}
+      <button @click="$emit('del-todo',todo.id)" class="del">X</button>
   </div>
 </template>
 
@@ -24,4 +25,19 @@ export default {
 .is-completed{
     text-decoration: line-through;
 }
+.todo-item {
+    background: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px #ccc dotted;
+  }
+  .del {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    cursor: pointer;
+    float: right;
+  }
 </style>
