@@ -1,0 +1,46 @@
+<template>
+  <div>
+      <form @submit.prevent="hi">
+          <input type="text" v-model="title" placeholder="Add todo">
+          <button type="submit" value="Submit" class="btn">Add Todo</button>
+      </form>
+      
+  </div>
+</template>
+
+<script>
+import { v4 as uuidv4 } from 'uuid';
+export default {
+    name:"AddTodo",
+    data(){
+        return{
+            title:''
+        }
+    },
+    methods:{
+        hi(){
+            const newTodo={
+                id:uuidv4(),
+                title:this.title,
+                isDone:false
+            }
+        this.$emit("newTodo",newTodo);
+        this.title='';
+        }
+    }
+}
+</script>
+
+<style scoped>
+
+form {
+    display: flex;
+}
+input[type="text"] {
+    flex: 10;
+    padding: 5px;
+}
+input[type="submit"] {
+    flex: 2;
+}
+</style>
